@@ -1,0 +1,56 @@
+/* Cursor Dark: Cursor's own default dark theme (theme-cursor/cursor-dark-color-theme.json).
+   Same format as px0's web/themes/*.css; token reference: px0's
+   docs/internals/styling-and-themes.md. */
+:root[data-theme="cursor-dark"] {
+  --theme-name: "Cursor Dark";
+  color-scheme: dark;
+
+  /* editor, side bar / tabs / status bar, widgets, scrollbar slider */
+  --bg: #181818; --bg2: #141414; --bg3: #222222; --bg4: #F0F0F01E;
+  --bg1: #181818; --bg-hover: #F0F0F011; --bg-active: #F0F0F01E;
+  /* editor text, status bar text, line numbers */
+  --fg: #F0F0F0; --dim: #F0F0F099; --faint: #F0F0F05C;
+  --line: #F0F0F013; --border: #F0F0F013;
+  --accent: #81A1C1; --accent-fg: #88C0D0; --on-accent: #191C22;
+  /* selection, find matches, current line */
+  --sel: #40404099; --mark: #88C0D044; --mark-active: #88C0D066; --on-mark-active: #F0F0F0; --cur: #262626;
+  --shadow: 0 0 8px 2px #00000066;
+  --warn: #F1B467;
+
+  /* syntax, resolved from the theme's token rules */
+  --k: #82D2CE; --kt: #82D2CE; --nf: #EFB080; --nc: #87C3FF; --nb: #EFB080;
+  --nv: #87C3FF; --no: #AAA0FA; --na: #AAA0FA; --nt: #87C3FF; --nd: #A8CC7C;
+  --np: #AAA0FA; --s: #E394DC; --m: #EBC88D; --o: #D6D6DD; --p: #D6D6DD;
+  --c: #F0F0F099; --cp: #A8CC7C; --err: #E34671;
+
+  /* git gutter and diff editor */
+  --gi: #3FA266; --gd: #E34671;
+  --gi-bg: #3FA26633; --gd-bg: #B8004933;
+}
+
+/* comments are italic here; true, false and null keep the editor text colour */
+:root[data-theme="cursor-dark"] :is(.c, .md-code, .diff-code) .c { font-style: italic; }
+:root[data-theme="cursor-dark"] :is(.c, .md-code, .diff-code) .px0d-constant { color: var(--fg); }
+:root[data-theme="cursor-dark"] :is(.c, .md-code, .diff-code) .px0d-self { color: #CC7C8A; }
+
+/* explorer: side bar text, hover and selection like Cursor's lists */
+:root[data-theme="cursor-dark"] .tr .nm, :root[data-theme="cursor-dark"] .tr.file .nm { color: #F0F0F0BD; }
+:root[data-theme="cursor-dark"] :is(.tr:hover, .tr.sel) .nm { color: var(--fg); }
+:root[data-theme="cursor-dark"] .tr:hover { background: #F0F0F011; }
+:root[data-theme="cursor-dark"] :is(.tr.sel, .sym.sel, .rline.sel) { background: #F0F0F011; }
+:root[data-theme="cursor-dark"] .pi.sel { background: #F0F0F01E; }
+:root[data-theme="cursor-dark"] :is(.tr.git-M .nm, .tr.git-M .gs) { color: #F1B467; }
+:root[data-theme="cursor-dark"] :is(.tr.git-A .nm, .tr.git-A .gs) { color: #70B489; }
+:root[data-theme="cursor-dark"] :is(.tr.git-untracked .nm, .tr.git-untracked .gs) { color: #88C0D0; }
+:root[data-theme="cursor-dark"] :is(.tr.git-D .nm, .tr.git-D .gs) { color: #FC6B83; }
+:root[data-theme="cursor-dark"] .tr.ignored .nm { color: #F0F0F099; }
+
+/* tabs: faint inactive titles, no active-tab border */
+:root[data-theme="cursor-dark"] .tab { color: #F0F0F05C; }
+:root[data-theme="cursor-dark"] .tab.active { color: var(--fg); }
+
+:root[data-theme="cursor-dark"] #status { color: #F0F0F099; }
+
+/* flat, translucent scrollbar sliders */
+:root[data-theme="cursor-dark"] ::-webkit-scrollbar-thumb { background: #F0F0F011; border: 0; border-radius: 0; }
+:root[data-theme="cursor-dark"] ::-webkit-scrollbar-thumb:hover { background: #F0F0F01E; }
