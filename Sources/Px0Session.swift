@@ -152,9 +152,13 @@ final class Px0Session {
         }
     }
 
+    /// px0 0.1.19 and earlier print "url:  http://…"; 0.1.20 drops the colon ("url  http://…").
     private static func field(_ key: String, in line: String) -> String? {
-        guard line.hasPrefix(key + ":") else { return nil }
-        let value = line.dropFirst(key.count + 1).trimmingCharacters(in: .whitespaces)
+        guard line.hasPrefix(key) else { return nil }
+        var rest = line.dropFirst(key.count)
+        if rest.first == ":" { rest = rest.dropFirst() }
+        guard rest.first == " " || rest.first == "\t" else { return nil }
+        let value = rest.trimmingCharacters(in: .whitespaces)
         return value.isEmpty ? nil : value
     }
 
